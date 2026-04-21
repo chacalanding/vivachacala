@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /assets/
+Disallow: /system/
+Disallow: /cgi-bin/
+Disallow: /icsFiles/
+
+
+Sitemap: https://www.vivachacala.com/sitemap.xml
+
+
+

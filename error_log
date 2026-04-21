@@ -1,0 +1,25 @@
+[05-Dec-2023 00:56:49 America/Mexico_City] PHP Fatal error:  Cannot declare class ics, because the name is already in use in /home/yjbijwhsk7zj/public_html/iCalEasyReader.php on line 3
+[05-Dec-2023 00:57:10 America/Mexico_City] PHP Fatal error:  Cannot declare class ics, because the name is already in use in /home/yjbijwhsk7zj/public_html/iCalEasyReader.php on line 3
+[11-Dec-2023 07:16:30 America/Mexico_City] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65028096 bytes) in /home/yjbijwhsk7zj/public_html/application/views/Frontend/property/details.php on line 371
+[11-Dec-2023 07:16:35 America/Mexico_City] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65028096 bytes) in /home/yjbijwhsk7zj/public_html/application/views/Frontend/property/details.php on line 371
+[11-Dec-2023 07:16:42 America/Mexico_City] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65028096 bytes) in /home/yjbijwhsk7zj/public_html/application/views/Frontend/property/details.php on line 371
+[11-Dec-2023 07:18:40 America/Mexico_City] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65028096 bytes) in /home/yjbijwhsk7zj/public_html/application/views/Frontend/property/details.php on line 372
+[26-Mar-2024 02:30:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function base_url() in /home/realtyitcc/vivachacala.com/why-viva-chacala.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/realtyitcc/vivachacala.com/why-viva-chacala.php on line 12
+[19-Apr-2024 13:56:10 America/Denver] PHP Notice:  Undefined index: log_path in /home/realtyitcc/vivachacala.com/system/core/Log.php on line 128
+[19-Apr-2024 13:56:10 America/Denver] PHP Notice:  Undefined index: log_path in /home/realtyitcc/vivachacala.com/system/core/Log.php on line 128
+[19-Apr-2024 13:56:10 America/Denver] PHP Warning:  mkdir(): Invalid path in /home/realtyitcc/vivachacala.com/system/core/Log.php on line 132
+[19-Apr-2024 13:56:10 America/Denver] PHP Notice:  Undefined index: log_threshold in /home/realtyitcc/vivachacala.com/system/core/Log.php on line 139
+[19-Apr-2024 13:56:10 America/Denver] PHP Notice:  Undefined index: log_threshold in /home/realtyitcc/vivachacala.com/system/core/Log.php on line 143
+[19-Apr-2024 13:56:13 America/Denver] PHP Notice:  Undefined index: log_path in /home/realtyitcc/vivachacala.com/system/core/Log.php on line 128
+[19-Apr-2024 13:56:13 America/Denver] PHP Notice:  Undefined index: log_path in /home/realtyitcc/vivachacala.com/system/core/Log.php on line 128
+[19-Apr-2024 13:56:13 America/Denver] PHP Warning:  mkdir(): Invalid path in /home/realtyitcc/vivachacala.com/system/core/Log.php on line 132
+[19-Apr-2024 13:56:13 America/Denver] PHP Notice:  Undefined index: log_threshold in /home/realtyitcc/vivachacala.com/system/core/Log.php on line 139
+[19-Apr-2024 13:56:13 America/Denver] PHP Notice:  Undefined index: log_threshold in /home/realtyitcc/vivachacala.com/system/core/Log.php on line 143
+[19-Apr-2024 13:56:15 America/Denver] PHP Notice:  Undefined index: log_path in /home/realtyitcc/vivachacala.com/system/core/Log.php on line 128
+[19-Apr-2024 13:56:15 America/Denver] PHP Notice:  Undefined index: log_path in /home/realtyitcc/vivachacala.com/system/core/Log.php on line 128
+[19-Apr-2024 13:56:15 America/Denver] PHP Warning:  mkdir(): Invalid path in /home/realtyitcc/vivachacala.com/system/core/Log.php on line 132
+[19-Apr-2024 13:56:15 America/Denver] PHP Notice:  Undefined index: log_threshold in /home/realtyitcc/vivachacala.com/system/core/Log.php on line 139
+[19-Apr-2024 13:56:15 America/Denver] PHP Notice:  Undefined index: log_threshold in /home/realtyitcc/vivachacala.com/system/core/Log.php on line 143

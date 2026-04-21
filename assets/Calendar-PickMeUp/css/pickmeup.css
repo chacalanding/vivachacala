@@ -1,0 +1,136 @@
+.pickmeup { background-color: #fff; -moz-box-sizing: content-box; box-sizing: content-box; display: block; margin:15px 0; padding:0; text-align: center; width:100%;border: 1px solid #dedede; border-radius: 10px; }
+.pickmeup * { -moz-box-sizing: border-box; box-sizing: border-box; }
+.pickmeup .pmu-instance { display: inline-block; height: auto; text-align: center; width: 235px; background-color: #fff;  margin: 3px; vertical-align: top; }
+.pickmeup .pmu-instance .pmu-button { color: #777; cursor:default; outline: none; text-decoration: none; }
+.pickmeup .pmu-instance .pmu-days .pmu-button {pointer-events: none;}
+.pickmeup .pmu-instance .pmu-today { background: #f5f5f5; color: #282828; }
+/*.pickmeup .pmu-instance .pmu-button:hover { color: #282828; }*/
+.pickmeup .pmu-instance .pmu-not-in-month { color: #fff; visibility:hidden; }
+.pickmeup .pmu-instance .pmu-disabled, .pickmeup .pmu-instance .pmu-disabled:hover { color: #282828; cursor: default; }
+.pickmeup .pmu-instance .pmu-selected { background: #D2DE32 !important; color: #282828; text-decoration: line-through; }
+.pickmeup .pmu-instance .checkin_booked { background-image:url(../../frontend/images/check_in_booked.png) !important; background-repeat:no-repeat !important; background-position:bottom right; text-decoration: line-through; background-size: 100% !important; }
+.pickmeup .pmu-instance .checkout_booked { background-image:url(../../frontend/images/check_out_booked.png) !important; background-repeat:no-repeat !important; background-position:top left; text-decoration:none; background-size: 100% !important; }
+.pickmeup .pmu-instance .pmu-day-of-week div { background-color:transparent !important; }
+.pickmeup .pmu-instance .pmu-not-in-month.pmu-selected { background: #17384d; }
+.pickmeup .pmu-instance nav { color: #eeeeee; display: -ms-flexbox; display: -webkit-flex; display: flex; line-height: 18px; padding:10px 5px; }
+.pmu-days, .pmu-months, .pmu-years { padding: 5px 5px; }
+.pickmeup .pmu-instance nav *:first-child :hover { color: #282828; }
+.pickmeup .pmu-instance nav .pmu-prev, .pickmeup .pmu-instance nav .pmu-next { display: none; height: 20px; width: 20px; }
+.pickmeup .pmu-instance nav .pmu-month { width: 100%; font-family: inherit; cursor:default; }
+.pickmeup .pmu-instance .pmu-years *, .pickmeup .pmu-instance .pmu-months * { display: inline-block; line-height: 40px; width: 50px; }
+.pickmeup .pmu-instance .pmu-day-of-week { color: #777; cursor: default; background-color: #f5f5f5; padding: 0px 5px; }
+.pickmeup .pmu-instance .pmu-day-of-week *, .pickmeup .pmu-instance .pmu-days * { display: inline-block; line-height: 29px; width: 29px; /*border-radius: 15px;*/ background-color: #eaf4f6; font-size: 12px; margin: 1px; }
+.pickmeup .pmu-instance .pmu-day-of-week * { line-height: 30px; }
+.pickmeup .pmu-instance:first-child .pmu-prev, .pickmeup .pmu-instance:last-child .pmu-next { display: block; cursor:pointer; }
+.pickmeup .pmu-instance:first-child .pmu-month, .pickmeup .pmu-instance:last-child .pmu-month { width: calc(100% - 30px);pointer-events: none; }
+.pickmeup .pmu-instance:first-child:last-child .pmu-month { width: 12px; }
+ .pickmeup:not(.pmu-view-days) .pmu-days, .pickmeup:not(.pmu-view-days) .pmu-day-of-week, .pickmeup:not(.pmu-view-months) .pmu-months, .pickmeup:not(.pmu-view-years) .pmu-years {
+ display: none;
+}
+.booking_indicators { margin:15px 0 0px 0; }
+.indi_box { display: inline-block; margin: 5px 10px; font-size: 13px; color: #777; font-weight: 600; line-height:20px; }
+.indi_box span { width:20px; height:20px; /*border-radius:50%;*/ display:inline-block; margin-right:5px; }
+.indi_box span.available_status { background-color:#eaf4f6; vertical-align:top; }
+.indi_box span.booked_status { background-color:#D2DE32; vertical-align:top; }
+.indi_box span.checkin_status {
+    background-image: url(../../frontend/images/check_in_booked.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: bottom right;background-color:#D2DE32;
+    text-decoration: line-through;
+    background-size: 100% !important;
+}
+.indi_box span.checkout_status {
+    background-image: url(../../frontend/images/check_out_booked.png) !important;
+    background-repeat: no-repeat !important;background-color:#D2DE32;
+    background-position: bottom right;
+    text-decoration: line-through;
+    background-size: 100% !important;
+}
+
+@media screen and (max-width: 1050px) {
+.pickmeup .pmu-instance {
+width:230px;
+}
+.pickmeup .pmu-instance .pmu-days .pmu-button {
+width:27px;
+line-height:27px;
+}
+}
+@media screen and (max-width: 1035px) {
+.pickmeup .pmu-instance {
+ width: 220px;
+ margin: 2px;
+}
+}
+@media screen and (max-width: 1000px) {
+.pickmeup .pmu-instance {
+ width: 215px;
+}
+.pmu-days, .pmu-months, .pmu-years {
+ padding: 0px 0px;
+}
+}
+@media screen and (max-width: 970px) {
+.pickmeup .pmu-instance {
+ width: 210px;
+}
+}
+@media screen and (max-width: 950px) {
+.pickmeup .pmu-instance {
+ width: 205px;
+}
+.pickmeup {
+text-align:left;
+}
+}
+@media screen and (max-width: 767px) {
+.pickmeup .pmu-instance {
+ width: 32%;
+}
+.pickmeup {
+text-align:center;
+}
+}
+@media screen and (max-width: 680px) {
+.pickmeup .pmu-instance .pmu-days .pmu-button {
+width:25px;
+line-height:25px;
+}
+.pmu-days, .pmu-months, .pmu-years {
+ padding:5px 0px;
+}
+.pickmeup .pmu-instance {
+    width: 195px;
+}
+
+}
+@media screen and (max-width: 640px) {
+.pickmeup .pmu-instance {
+    width: 180px;
+}
+
+.pickmeup .pmu-instance .pmu-days .pmu-button {
+width:24px;
+line-height:24px; margin:.5px;
+}
+}
+@media screen and (max-width: 600px) {
+.pickmeup .pmu-instance {
+    width: 170px;
+}
+.indi_box{ margin:5px;}
+.pickmeup .pmu-instance .pmu-days .pmu-button {
+width:23px;
+line-height:23px; 
+}
+}
+@media screen and (max-width: 567px) {
+.pickmeup .pmu-instance {
+    width: 270px;
+}
+
+.pickmeup .pmu-instance .pmu-days .pmu-button {
+width:37px;line-height:37px;
+}
+.pickmeup .pmu-instance .pmu-day-of-week div{ width:37px;}
+}
