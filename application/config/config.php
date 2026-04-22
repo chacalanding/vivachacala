@@ -21,6 +21,10 @@ $config['admin_email_sent_to'] = 'santiarreolam@gmail.com';
 // $config['admin_email_sent_to'] = 'rpierce165@gmail.com';
 $config['admin_email_sent_to_cc'] = '';
 
+$config['supabase_url'] = 'https://qbguzifxtpzvkxudkeqn.supabase.co';
+$config['supabase_key'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFiZ3V6aWZ4dHB6dmt4dWRrZXFuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkxNjk1ODEsImV4cCI6MjA3NDc0NTU4MX0.6qw-J1z8d9x0IZvCD9TVbgBRl_rseM5gAM6ImNMtLyc';
+
+
 $config['categories_types_array_config']=array(
 '1'=>array('name'=>'Ocean Front','slug'=>'ocean-front','status'=>'0'),
 '2'=>array('name'=>'Larger Groups','slug'=>'larger-groups','status'=>'0'),

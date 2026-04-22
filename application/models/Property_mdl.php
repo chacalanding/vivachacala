@@ -442,7 +442,24 @@ class Property_mdl extends CI_Model {
 	
 	}
 	
+	// public function frontHighlightDate($propertyId){
+	// 	// PRUEBA: ignoramos $propertyId local y usamos un id fijo de Supabase
+	// 	$supabasePropertyId = 'tvgwLTxbS0mwSr.K1M5wNg';
+	// 	return $this->frontHighlightDateFromSupabase($supabasePropertyId);
+	// }
+
 	public function frontHighlightDate($propertyId){
+		// Buscar la propiedad local para leer su supabase_property_id
+		$property = $this->db->get_where('properties', array(
+			'propertyId' => $propertyId
+		))->row_array();
+
+		// Si existe mapeo a Supabase, usamos Supabase
+		if (!empty($property['supabase_property_id'])) {
+			return $this->frontHighlightDateFromSupabase($property['supabase_property_id']);
+		}
+
+		// Fallback al calendario local viejo
 		$current_date = strtotime(date('Y-m'));
 		$this->db->where('checkin_date >= ', $current_date); 
 		$this->db->where('propertyId', $propertyId); 
@@ -450,7 +467,8 @@ class Property_mdl extends CI_Model {
 		$query = $this->db->get('reserve_date');
 		return $query->result();		
 	}
-	
+
+		
 	public function highlight_date($propertyId){
 		//$this->db->where('checkin_date >', '1543661927');
 		$this->db->where('propertyId', $propertyId);
@@ -553,6 +571,80 @@ class Property_mdl extends CI_Model {
 			return 'error||Oops, From date always less then the Book To Date.';	
 		}
 		
+	}
+	public function frontHighlightDateFromSupabase($supabasePropertyId) {
+		$supabaseUrl = rtrim($this->config->item('supabase_url'), '/');
+		$supabaseKey = $this->config->item('supabase_key');
+
+		$table = 'property_reservations_api';
+		$url = $supabaseUrl . '/rest/v1/' . $table .
+			'?select=id,property_id,property_name,check_in_date,check_out_date' .
+			'&property_id=eq.' . urlencode($supabasePropertyId) .
+			'&order=check_in_date.asc';
+
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+			'apikey: ' . $supabaseKey,
+			'Authorization: Bearer ' . $supabaseKey,
+			'Content-Type: application/json'
+		));
+
+		$response = curl_exec($ch);
+		$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+		$curlError = curl_error($ch);
+		curl_close($ch);
+
+		if ($curlError || $httpCode >= 400) {
+			log_message('error', 'Supabase error: ' . $curlError . ' | HTTP: ' . $httpCode . ' | Response: ' . $response);
+			return array();
+		}
+
+		$rows = json_decode($response);
+
+		if (!is_array($rows)) {
+			return array();
+		}
+
+		$result = array();
+
+		foreach ($rows as $row) {
+			$checkinTs = $this->parseSupabaseDateToTimestamp($row->check_in_date);
+			$checkoutTs = $this->parseSupabaseDateToTimestamp($row->check_out_date);
+
+			if (!$checkinTs || !$checkoutTs) {
+				continue;
+			}
+
+			// Expandir la reservación a días individuales
+			// check_out_date se toma como salida, así que no se bloquea ese día completo
+			for ($dayTs = $checkinTs; $dayTs < $checkoutTs; $dayTs += 86400) {
+				$obj = new stdClass();
+				$obj->checkin_date = $dayTs;
+				$obj->checkout_date = $dayTs + 86400;
+				$result[] = $obj;
+			}
+		}
+
+		return $result;
+	}
+	private function parseSupabaseDateToTimestamp($dateStr) {
+		if (!$dateStr) {
+			return false;
+		}
+
+		$dateStr = trim($dateStr);
+
+		$dt = DateTime::createFromFormat('Y-m-d', $dateStr);
+
+		if (!$dt) {
+			return false;
+		}
+
+		$dt->setTime(0, 0, 0);
+
+		return $dt->getTimestamp();
 	}
 	
 }
