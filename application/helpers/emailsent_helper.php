@@ -60,7 +60,13 @@
 		}else{
 			$mail->AddAddress($to, $title);
 		}*/
-		$mail->AddAddress($to, $title);
+		$to_arr = explode(',', $to);
+		foreach($to_arr as $email_to){
+			$email_to = trim($email_to);
+			if($email_to != ''){
+				$mail->AddAddress($email_to, $title);
+			}
+		}
 		if(isset($replyTo) && $replyTo!=''){
             $mail->AddReplyTo($replyTo, $title);
         }
